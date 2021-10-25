@@ -15,7 +15,7 @@ public class StateActor extends AbstractActor {
         receive(ReceiveBuilder.match(SetRequest.class, msg -> {
             log.info("Last key is {}", lastStr);
             lastStr = curStr;
-            curStr = msg.getKey();
+            curStr = msg.key;
             log.info("Current key {}", lastStr);
         }).matchAny(o -> log.info("received unknown message {}", o)).build());
     }
